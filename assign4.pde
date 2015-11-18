@@ -258,7 +258,7 @@ void draw() {
      if(f<5){
       image(flame[f],bownX,bownY);
      f++;
-     println(f);
+     
   }
    } //<>//
  
