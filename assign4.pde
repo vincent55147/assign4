@@ -47,7 +47,7 @@ shoothave=0;
   //random
   treasureY=floor(random(41,439));
   treasureX=floor(random(41,599));
-   enemyY[0]=floor(random(0,419));
+   enemyY[4]=floor(random(0,419));
   mode=0;
   hphave=20;
   ego=0;
