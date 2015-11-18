@@ -260,7 +260,7 @@ void draw() {
      f++;
      println(f);
   }
-   }
+   } //<>//
  
  
   //catch treasure
