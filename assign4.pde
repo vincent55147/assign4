@@ -319,6 +319,7 @@ void mousePressed(){
      enemyhave[open]=true;
    }
     shoothave=0;
+    f=5;
   }
 }
 
