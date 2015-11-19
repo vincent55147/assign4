@@ -171,9 +171,9 @@ void draw() {
     if(k==4)enemyX[7]=enemyX[0];enemyY[7]=enemyY[0]+k*61;
   }
     
-  for(int f=0;f<8;f++){
-    if(enemyhave[f]==true)//<>//
-    image(enemy,enemyX[f],enemyY[f]);
+  for(int v=0;v<8;v++){
+    if(enemyhave[v]==true)//<>//
+    image(enemy,enemyX[v],enemyY[v]);
   }
      enemylose=0;
  }
