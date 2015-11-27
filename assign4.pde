@@ -51,7 +51,7 @@ shoothave=0;
   mode=0;
   hphave=20;
   ego=0;
-  frameRate(60);
+
   for(int open=0;open<5;open++)
     enemyhave[open]=true;
 }
@@ -171,9 +171,9 @@ void draw() {
     if(k==4)enemyX[7]=enemyX[0];enemyY[7]=enemyY[0]+k*61;
   }
     
-  for(int v=0;v<8;v++){
-    if(enemyhave[v]==true)//<>//
-    image(enemy,enemyX[v],enemyY[v]);
+  for(int u=0;u<8;u++){
+    if(enemyhave[u]==true)//<>//
+    image(enemy,enemyX[u],enemyY[u]);
   }
      enemylose=0;
  }
@@ -223,12 +223,13 @@ void draw() {
        if(enemyhave[r]==true){
        if(enemyX[r]+61>=shootX[p])
        if(enemyX[r]+61>=shootX[p]&&(((shootY[p]>enemyY[r])&&(shootY[p]<enemyY[r]+61))||((shootY[p]+27>enemyY[r]) && (shootY[p]+27<enemyY[r]+61)))){
-     enemyhave[r]=false;
+    shoothave--;
+    enemyhave[r]=false;
      f=0;
      bownX=enemyX[r];
      bownY=enemyY[r];
-      shootleave[p]=false;
-    shoothave--;
+     shootleave[p]=false;
+     
      }
    }
  }
@@ -253,15 +254,14 @@ void draw() {
   
   
      
-   if(frameCount%(60/10)==0){
-     
-     if(f<5){
-      image(flame[f],bownX,bownY);
+   if(frameCount%(60/10)==0){ 
+     if(f<5){   
      f++;
      
   }
-   } //<>//
- 
+   }
+    if(f<5)//<>//
+ image(flame[f],bownX,bownY);
  
   //catch treasure
    if((treasureX+41 >fighterX&&treasureX+41<=fighterX+fightersize)&&
