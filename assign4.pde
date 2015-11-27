@@ -189,22 +189,29 @@ void draw() {
   if((fighterX<=width-fightersize&&fighterX>=0))
   if((fighterY<=height-fightersize&&fighterY>=0)){
   if(go_up)
+  if(fighterY>5)
   fighterY-=5;
+  else
+  fighterY=0;
   if(go_down)
+  if(fighterY<height-fightersize-5)
   fighterY+=5;
+  else
+  fighterY=height-fightersize;
+  
   if(go_left)
+  if(fighterX>5)
   fighterX-=5;
+  else
+  fighterX=0;
+ 
   if(go_right)
+  if(fighterX<width-fightersize-5)
   fighterX+=5;
+  else
+  fighterX=width-fightersize;
   }
-  else if(fighterY>height-fightersize)
-    fighterY=height-fightersize;
-   else
-   fighterY=0;
-  else if(fighterX>width-fightersize)
-    fighterX=width-fightersize;
-    else
-    fighterX=0;
+ 
    //shoot
      for(int e=0;e<5;e++){ 
     if(shootleave[e]){
@@ -264,34 +271,13 @@ void draw() {
  image(flame[f],bownX,bownY);
  
   //catch treasure
-   if((treasureX+41 >fighterX&&treasureX+41<=fighterX+fightersize)&&
-   (treasureY>=fighterY&&treasureY<=fighterY+fightersize)){
-    if(hphave<200)
-     hphave+=20;
-  treasureY=floor(random(41,439));
-  treasureX=floor(random(41,599));
-  }
-  else if((treasureX+41 >fighterX&&treasureX+41<=fighterX+fightersize)&&
-  (treasureY+41>=fighterY&&treasureY+41<=fighterY+fightersize)){
-   if(hphave<200)
+  if(((treasureX>=fighterX&&treasureX<=fighterX+fightersize)||(treasureX+41>=fighterX&&treasureX+41<=fighterX+fightersize))
+  && ((treasureY>=fighterY&&treasureY<=fighterY+fightersize)||(treasureY+41>=fighterY&&treasureY+41<=fighterY+fightersize))){
+  if(hphave<200)
     hphave+=20;
     treasureY=floor(random(41,439));
   treasureX=floor(random(41,599));
   }
-  else if((treasureX+41 >fighterX+fightersize&&treasureX<=fighterX+fightersize)&&
-  (treasureY+41>=fighterY+fightersize&&treasureY+41<=fighterY+fightersize)){
-   if(hphave<200)
-    hphave+=20;
-    treasureY=floor(random(41,439));
-  treasureX=floor(random(41,599));
-  }
-  else if((treasureX+41 >fighterX+fightersize&&treasureX<=fighterX+fightersize)&&
-  (treasureY+41>=fighterY+fightersize&&treasureY<=fighterY+fightersize)){
-   if(hphave<200)
-    hphave+=20;
-  treasureY=floor(random(41,439));
-  treasureX=floor(random(41,599));
-  } 
   if(hphave<=0){
    end=true;
    mode=0;
